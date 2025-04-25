@@ -32,4 +32,6 @@ vim.opt.colorcolumn = "80"
 vim.opt.list = true
 vim.opt.listchars = { trail = '@', tab = '>~' }
 
+vim.opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+vim.opt.statusline="%<%f | %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\\ %P"
