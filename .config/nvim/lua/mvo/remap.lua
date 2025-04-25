@@ -62,3 +62,8 @@ vim.keymap.set("i", "<C-Space>", "<C-x><C-o>", {remap = true})
 
 -- Start replacing selected word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+
+-- Neo-tree toggle
+vim.keymap.set({"n","v"}, '<C-b>', '<Cmd>Neotree toggle<CR>')
+
