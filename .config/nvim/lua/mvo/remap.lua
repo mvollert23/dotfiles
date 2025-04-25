@@ -21,8 +21,9 @@ vim.keymap.set({"n", "v"}, "<C-w><C-k>", "10<C-w>+")
 -- Move lines up/down
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
-vim.keymap.set("n", "<C-k>", ":m .-2<CR>==")
-vim.keymap.set("n", "<C-j>", ":m .+1<CR>==")
+-- disabled because of vim-tmux-navigator
+-- vim.keymap.set("n", "<C-k>", ":m .-2<CR>==")
+-- vim.keymap.set("n", "<C-j>", ":m .+1<CR>==")
 
 -- Navigation in insert mode
 vim.keymap.set("i", "<C-k>", "<up>")
