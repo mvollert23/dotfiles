@@ -9,11 +9,20 @@ vim.keymap.set({"n","v","i"}, "<down>", "<nop>")
 vim.keymap.set({"n","v","i"}, "<left>", "<nop>") 
 vim.keymap.set({"n","v","i"}, "<right>", "<nop>")
 
+-- Split
+vim.keymap.set({"n", "v"}, "<C-w><C-v>", "<C-w>s")
+
+-- Split resizing
+vim.keymap.set({"n", "v"}, "<C-w><C-l>", "10<C-w>>")
+vim.keymap.set({"n", "v"}, "<C-w><C-h>", "10<C-w><")
+vim.keymap.set({"n", "v"}, "<C-w><C-j>", "10<C-w>-")
+vim.keymap.set({"n", "v"}, "<C-w><C-k>", "10<C-w>+")
+
 -- Move lines up/down
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
-vim.keymap.set("n", "<C-j>", ":m .+1<CR>==")
 vim.keymap.set("n", "<C-k>", ":m .-2<CR>==")
+vim.keymap.set("n", "<C-j>", ":m .+1<CR>==")
 
 -- Navigation in insert mode
 vim.keymap.set("i", "<C-k>", "<up>")
@@ -26,8 +35,6 @@ vim.keymap.set("n", "J", "mzJ`z")
 
 -- Keep cursor in the middle when scrolling
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-
 -- Keep cursor in the middle when searching
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
