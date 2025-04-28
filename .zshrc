@@ -13,6 +13,12 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
+
+if [[ -f "/opt/homebrew/bin/brew" ]] then
+    # Check if brew is installed (macOS), if so, ensure it's in the PATH.
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 ### Plugins
 # Add Powerlevel10k prompt
 zinit ice depth=1; zinit light romkatv/powerlevel10k
@@ -51,8 +57,7 @@ zinit snippet OMZP::command-not-found
 # Case insensitive autocompletion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # Colors for completion
-LS_COLORS='no=00;37:fi=00:di=00;33:ln=04;36:pi=40;33:so=01;35:bd=40;33;01:'
-export LS_COLORS
+export LS_COLORS='no=00;37:fi=00:di=00;33:ln=04;36:pi=40;33:so=01;35:bd=40;33;01:'
 zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
 # As we use fzf for the completion menu, disable zsh completion menu.
 zstyle ':completion:*' menu no
@@ -77,9 +82,15 @@ bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
 
-### Some environment variables
+### Environment setup
 # Environment variables
 export CLICOLOR=1
+export EDITOR="nvim"
+# Aliases
+alias vi='nvim'
+alias vim='nvim'
+
+ulimit -c unlimited # Enable core dumps
 
 ### Utilities
 # Enable fzf for fuzzy file searching if fzf is installed.
@@ -111,6 +122,8 @@ else
     alias ls='ls --color'
     alias ll='ls -la'
 fi
+
+
 
 ### Prompt post-init
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
