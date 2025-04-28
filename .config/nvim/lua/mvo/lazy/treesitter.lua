@@ -8,7 +8,7 @@ return {
             -- A list of parser names, or "all"
             ensure_installed = {
                 "vimdoc", "javascript", "typescript", "c", "cmake", "cpp", "lua", "rust",
-                "jsdoc", "bash",
+                "jsdoc", "bash", "json", "json5", "yaml", "html", "css", "scss", "markdown",
             },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
