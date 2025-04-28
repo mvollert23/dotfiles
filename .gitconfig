@@ -1,0 +1,47 @@
+[user]
+    name = Michael Vollert
+    email = git@mvollert.de
+
+[color "diff"]
+    meta = blue
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = green bold
+    changed = yellow bold
+    untracked = magenta bold
+
+[commit]
+    verbose = true # show full diff in commit message editor
+
+[diff]
+    algorithm = histogram # use better diffing
+
+[format]
+    pretty = tformat:%C(auto)%h%d %s %Cgreen(%ad) %C(bold blue)<%an>%Creset   # pretty says it all
+
+[init]
+    defaultBranch = main
+
+[log]
+    abbrevCommit = true   # shorten SHA hashes
+    date = human          # make dates readable
+
+[merge]
+    conflictstyle = diff3 # show base version in merge conflicts
+
+[pull]
+    rebase = false
+
+[push]
+    default = upstream # push to the remote branch with the same name
+    followTags = true   # push tags when pushing branches
+
+[rerere]
+    enabled = true      # Enable reuse recorded resolution
+
+[status]
+    branch = true   # its good to know where you are
+    short = true    # show short status, screen size is limited..
+    submodulesummary = true # show submodule summary
