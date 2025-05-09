@@ -34,4 +34,9 @@ vim.opt.listchars = { trail = '@', tab = '>~' }
 
 vim.opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+    -- see below for full list of options 👇
 vim.opt.statusline="%<%f | %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\\ %P"
+
+
+-- Show special characters (required to get obsidian pluging to work correctly, see https://github.com/epwalsh/obsidian.nvim/issues/286)
+vim.opt.conceallevel = 2
