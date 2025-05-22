@@ -21,8 +21,8 @@ return {
         
     workspaces = {
       {
-        name = "test",
-        path = "~/dev/obsidian/test",
+        name = "mvo",
+        path = "~/dev/obsidian/mvo_obsidian_notes",
       },
     },
   },
