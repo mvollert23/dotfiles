@@ -18,7 +18,7 @@ def find_files(replace_what : str, workdir : str) -> List[str]:
     files = result.stdout.splitlines()
     return files
 
-def replace_in_file(file : str, replace_what : str, replace_to : str) -> None:
+def replace_in_file(file : str, replace_what : str, replace_to : str, workdir : str) -> None:
     esc_replace_what = replace_what.replace('/', '\\/')
     esc_replace_to = replace_to.replace('/', '\\/')
 
@@ -29,7 +29,7 @@ def replace_in_file(file : str, replace_what : str, replace_to : str) -> None:
     else:
         # Expect GNU/Linux sed
         cmd = ['sed', '-i', f's/{esc_replace_what}/{esc_replace_to}/g', file]
-    subprocess.run(cmd)
+    subprocess.run(cmd, cwd=workdir)
 
 @click.command()
 @click.argument('replace_what', type=str)
@@ -57,7 +57,7 @@ def find_replace(replace_what : str, replace_to : str, workdir : str,
             print(f". {file} [skipped]")
             continue
         print(f". {file}")
-        tp.apply_async(replace_in_file, (file, replace_what, replace_to))
+        tp.apply_async(replace_in_file, (file, replace_what, replace_to, workdir))
     tp.close()
     tp.join()
 
