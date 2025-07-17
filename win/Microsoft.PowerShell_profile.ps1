@@ -147,8 +147,12 @@ function pgrep($name)
 
 
 # Git Shortcuts
-function gst { git status }
-function ga { git add }
+function g { git $args }
+function gst { git status $args }
+function ga { git add $args }
+function gaa { git add --all }
+function gc { git commit -v $args }
+function gf { git fetch $args }
 
 
 # FZF
